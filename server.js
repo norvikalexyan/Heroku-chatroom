@@ -9,6 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socket(server);
 const connectionUrl = `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.dbUri}`;
+const PORT = process.env.PORT || process.env.port
 
 mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if(err) {
@@ -61,10 +62,10 @@ io.on('connection', (socket) => {
     console.log('user connected');
 });
 
-server.listen(process.env.port, (err) => {
+server.listen(PORT, (err) => {
     if(err) {
         throw err;
     }
     //callback function
-    console.log(`server is listening on port ${process.env.port}`);
+    console.log(`server is listening on port ${PORT}`);
 }); //port of 3000
