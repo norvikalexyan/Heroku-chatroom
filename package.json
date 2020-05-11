@@ -1,0 +1,19 @@
+{
+  "name": "chatterApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13",
+    "nodemon": "^2.0.3",
+    "socket.io": "^2.3.0"
+  }
+}
