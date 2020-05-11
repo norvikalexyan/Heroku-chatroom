@@ -1,15 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const http = require('http');
 const socket = require('socket.io');
-const config = require('./.configs');
 
-const port = 3000;
 const app = express();
 const server = http.createServer(app);
 const io = socket(server);
-const connectionUrl = `mongodb+srv://${config.username}:${config.password}@${config.dbUri}`;
+const connectionUrl = `mongodb+srv://${process.env.username}:${process.env.password}@${process.env.dbUri}`;
 
 mongoose.connect(connectionUrl, {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if(err) {
@@ -57,10 +56,10 @@ io.on('connection', (socket) => {
     console.log('user connected');
 });
 
-server.listen(3000, (err) => {
+server.listen(process.env.port, (err) => {
     if(err) {
         throw err;
     }
     //callback function
-    console.log(`server is listening on port ${port}`)
+    console.log(`server is listening on port ${process.env.port}`);
 }); //port of 3000
