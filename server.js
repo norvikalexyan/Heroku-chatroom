@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', (req, res) => {
+    console.log('request received');
     res.sendFile(__dirname + '/index.html');
   });
 

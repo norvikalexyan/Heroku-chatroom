@@ -52,12 +52,12 @@
       })
 
       const getMessages = () => {
-        $.get('http://localhost:3000/messages', (data) => {
+        $.get('https://norvochatroom.herokuapp.com/messages', (data) => {
           data.forEach(addMessage);
         });
       };
 
-      const postMessage = (messageObject) => $.post('http://localhost:3000/messages', messageObject);
+      const postMessage = (messageObject) => $.post('https://norvochatroom.herokuapp.com/messages', messageObject);
 
       const addMessage = (inputMessage) => $('#messages').append(`<h4>${inputMessage.name}</h4> <p>${inputMessage.text}</p>`);
 
